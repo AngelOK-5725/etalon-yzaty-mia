@@ -11,7 +11,11 @@
   <!-- <link rel="stylesheet" href="css/index.css" /> -->
 </head>
 <body>
-  <main class="page">
+  <main id="main-content" class="page">
+    <div id="lang-switcher" class="lang-switcher">
+      <button data-lang="ru" class="active">RU</button>
+      <button data-lang="kz">KZ</button>
+    </div>
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
@@ -30,19 +34,20 @@
       </div>
 
       <section class="invite-card">
-        <h2>Дорогие друзья и родные!</h2>
-        <p>
+        <h2 data-i18n="welcomeGreeting">Дорогие друзья и родные!</h2>
+        <p data-i18n="welcomeText1">
+          Мы рады пригласить вас на наше торжество, которое состоится 7 августа 2026 года.
           Приглашаем вас разделить с нами этот важный и счастливый день.
           Мы будем рады видеть вас на нашем торжестве.
         </p>
     </section>
     <div class="countdown-block">
-      <div class="countdown-title">До торжества осталось:</div>
+      <div  class="countdown-title" data-i18n="countdownTitle">До торжества осталось:</div>
       <div id="countdown" class="countdown">
-        <div><span id="days">00</span><small>дней</small></div>
-        <div><span id="hours">00</span><small>часов</small></div>
-        <div><span id="minutes">00</span><small>минут</small></div>
-        <div><span id="seconds">00</span><small>секунд</small></div>
+        <div><span id="countdown-days">00</span><small data-i18n="days">дней</small></div>
+        <div><span id="countdown-hours">00</span><small data-i18n="hours">часов</small></div>
+        <div><span id="countdown-minutes">00</span><small data-i18n="minutes">минут</small></div>
+        <div><span id="countdown-seconds">00</span><small data-i18n="seconds">секунд</small></div>
       </div>
     </div>
 
@@ -52,17 +57,17 @@
         <span>Дата</span>
         <div class="calendar">
           <div class="calendar-top">
-            <span>Апрель 2026</span>
+            <span>Август 2026</span>
           </div>
           <div class="calendar-grid calendar-days">
             <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
           </div>
           <div class="calendar-grid">
-            <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+            <span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
             <span>6</span><span class="active">7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
             <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
             <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
-            <span>27</span><span>28</span><span>29</span><span>30</span>
+            <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
           </div>
         </div>
         <!-- <strong>7 апреля 2026</strong> -->
@@ -135,7 +140,7 @@
     <section class="rsvp-section">
       <h2>Подтвердите присутствие</h2>
 
-      <form id="rsvpForm" class="rsvp-form">
+      <form id="rsvp-form" class="rsvp-form">
         <div class="grid">
           <label>
             Имя
@@ -179,62 +184,6 @@
     </section>
   </main>
 
-  <script src="js/script.js"></script>
-  <script>
-  const gallery = document.querySelector(".gallery");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-
-  const card = document.querySelector(".gallery img");
-  const scrollAmount = card ? card.offsetWidth + 14 : 280;
-
-  nextBtn.addEventListener("click", () => {
-    gallery.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth"
-    });
-  });
-
-  prevBtn.addEventListener("click", () => {
-    gallery.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth"
-    });
-  });
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.querySelector(".lightbox-image");
-  const lightboxClose = document.querySelector(".lightbox-close");
-
-  document.querySelectorAll(".gallery img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImage.src = img.src;
-      lightboxImage.src = img.dataset.full || img.src;
-      lightbox.classList.add("active");
-
-      document.body.style.overflow = "hidden";
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  lightboxClose.addEventListener("click", closeLightbox);
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeLightbox();
-    }
-  });
-
-  </script>
   <script src="js/script.js"></script>
 </body>
 </html>

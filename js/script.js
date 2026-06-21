@@ -13,15 +13,11 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
   const translations = {
     ru: {
       // Swipe overlay
-      swipeUp: 'Проведите вверх',
 
       // Hero
-      heroLabel: 'Семейное торжество',
-      heroName: 'Мия',
-      heroDate: '7 августа 2026',
 
       // Countdown
-      countdownTitle: 'До торжества осталось',
+      countdownTitle: 'До торжества осталось:',
       days: 'дней',
       hours: 'часов',
       minutes: 'минут',
@@ -35,27 +31,12 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
       // Welcome
       welcomeGreeting: 'Дорогие друзья и родные!',
-      welcomeText1: 'Мы будем рады разделить с вами важный день нашей семьи.',
+      welcomeText1: 'Мы рады пригласить вас на наше торжество, которое состоится 7 августа 2026 года. Приглашаем вас разделить с нами этот важный и счастливый день. Мы будем рады видеть вас на нашем торжестве.',
       welcomeText2: 'Приглашаем вас на Узату нашей дочери Мии.',
       welcomeSignature: 'С любовью, семья',
 
       // Dress Code
-      dressTitle: 'Казахский национальный костюм',
-      dressSubtitle: 'Поддержите национальный стиль — приходите в традиционных нарядах',
-      dressWomen: 'Женские образы',
-      dressMen: 'Мужские образы',
-      dressW1: 'Камзол + платье',
-      dressW2: 'Национальный камзол',
-      dressW3: 'Саукеле / Такия',
-      dressW4: 'Этно-шик образ',
-      dressW5: 'Бархатное платье',
-      dressW6: 'Платье с золотым орнаментом',
-      dressM1: 'Национальный чапан',
-      dressM2: 'Этнический жилет',
-      dressM3: 'Классический образ',
-      dressM4: 'Мужской камзол',
-      dressM5: 'Этно-шик образ',
-      dressM6: 'Такия / Борик',
+
 
       // Location
       locationTitle: 'Место проведения',
@@ -90,7 +71,6 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
     kz: {
       // Swipe overlay
-      swipeUp: 'Жоғары жылжытыңыз',
 
       // Hero
       heroLabel: 'Отбасылық мереке',
@@ -341,6 +321,7 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
     const overlay = document.getElementById('swipe-overlay');
     const mainContent = document.getElementById('main-content');
     const langSwitcher = document.getElementById('lang-switcher');
+    if (!overlay) return;
 
     let touchStartY = 0;
     let isSwiping = false;
@@ -529,8 +510,8 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
       entry.className = "guest-entry";
       entry.innerHTML = `
         <input type="text" class="guest-input" name="guest_${guestCount}"
-               placeholder="${translations[currentLang].guestPlaceholder}"
-               value="${nameValue || ''}" />
+              placeholder="${translations[currentLang].guestPlaceholder}"
+              value="${nameValue || ''}" />
         <button type="button" class="remove-guest-btn" aria-label="Удалить">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -561,18 +542,67 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
       });
     });
   }
+  const langButtons = document.querySelectorAll('.lang-switcher button');
+
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      langButtons.forEach(b => b.classList.remove('active'));
+
+      btn.classList.add('active');
+
+    });
+  });
 
   /* =============================================
      INIT
      ============================================= */
   document.addEventListener('DOMContentLoaded', () => {
-    // Apply saved language
     applyLanguage(currentLang);
 
-    // Initialize components
     initSwipeOverlay();
     initCountdown();
     initLangSwitch();
     initRsvp();
+    initGallery();
   });
+
+/* =============================================
+   GALLERY LIGHTBOX
+============================================= */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.querySelector(".lightbox-image");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.src;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+
+/* =============================================
+   END
+============================================= */
+
 })();

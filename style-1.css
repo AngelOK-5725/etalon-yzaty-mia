@@ -45,7 +45,78 @@ body {
   margin: 0 auto;
   padding-bottom: 40px;
 }
+/* ======= Language Switcher ========= */
+/* .lang-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
 
+  display: flex;
+
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(10px);
+
+  border-radius: 999px;
+  padding: 4px;
+
+  z-index: 1000;
+}
+
+.lang-switcher button {
+  border: none;
+  background: transparent;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  color: white;
+  cursor: pointer;
+}
+
+.lang-switcher button.active {
+  background: rgba(255,255,255,.25);
+} */
+.lang-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  gap: 4px;
+
+  padding: 4px;
+
+  background: rgba(143,90,74,.12);
+  border: 1px solid rgba(143,90,74,.25);
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+}
+
+.lang-switcher button {
+  border: none;
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.lang-switcher button.active {
+  background: var(--accent);
+  color: white;
+}
+/* ========== Hero =========== */
 .hero {
   position: relative;
   min-height: 80vh;
@@ -398,7 +469,9 @@ h2 {
 }
 
 
-
+/* =============================== */
+/* --------- Галлерея ---------- */
+/* =============================== */
 .gallery img {
   flex: 0 0 auto;
   width: 260px;
