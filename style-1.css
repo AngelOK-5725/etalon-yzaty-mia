@@ -1,0 +1,587 @@
+:root {
+  /* --bg: #efe6dc; */
+  --text: #3a2a24;
+  --accent: #8f5a4a;
+  --accent2: #c9a38c;
+  --card: rgba(255, 248, 242, 0.86);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+
+  --bg: #F8F6F5; /*#EDECE8 */
+
+  --text-primary: #260C05;
+  --text-secondary: #6D5B54;
+
+  --accent: #905729;
+  --accent-hover: #C28341;
+
+  --gold-light: #FFF9CF;
+  --gold-main: #FBEF66;
+  --gold-dark: #B88F2C;
+
+  --card: #F7F5F1;
+  --text-important: #130105;
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cormorant Garamond", serif;
+  /* background: radial-gradient(circle at top, #caa58e 0%, #8c6555 35%, #3f2b26 100%); */
+  background: var(--bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.hero {
+  position: relative;
+  min-height: 80vh;
+  max-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 60px 24px;
+  overflow: hidden;
+
+  background:
+      /* linear-gradient( */
+      /* to bottom, */
+      /* rgba(0,0,0,1.1) 0%, */ /* для затемнения верха фото */
+      /* rgba(0,0,0,0.0) 50%, */
+      /* rgba(0,0,0,0.0) 100% */
+      /* ), */
+      /* url("assets/images/main-poster.jpg") center/cover no-repeat; */
+      url("assets/images/serga-sit-1.jpeg") center/cover no-repeat;
+
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  /* box-shadow: var(--shadow); */
+    z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.4)); */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff8ef;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* .hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(6rem, 10vw, 6.5rem);
+  margin: 0;
+  font-weight: 400;
+  line-height: 0.9;
+  color: #fff8ef;
+} */
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(6rem, 10vw, 6.5rem);
+  margin: 0;
+  font-weight: 400;
+  line-height: 0.9;
+  display: inline;
+
+  background: linear-gradient(
+    180deg,
+    #fff9cf 0%,
+    #fbef66 35%,
+    #e4c84e 65%,
+    #b88f2c 100%
+  );
+  -webkit-text-stroke: 0.3px rgba(255,255,255,0.15);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+
+}
+
+.hero h1::after {
+  content: attr(data-text);
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  color: rgba(80, 55, 20, 0.25);
+
+  transform: translate(2px, 2px);
+}
+
+/* .small-title {
+  letter-spacing: 0.28em;
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+  opacity: 0.95;
+} */
+.small-title {
+  letter-spacing: 0.35em;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+
+  color: rgba(255, 245, 215, 0.9);
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.25);
+}
+/* .subtitle {
+  margin-top: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+} */
+.subtitle {
+  margin-top: 12px;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+
+  color: rgba(255, 248, 235, 0.92);
+
+  text-shadow:
+    0 1px 3px rgba(0,0,0,0.35);
+}
+/* ========================================= */
+/* --------decorative elements ----------- */
+/* ========================================= */
+/* .section-divider {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.section-divider img {
+  width: 120px;
+  opacity: 0.6;
+} */
+.section-divider {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.ornament {
+  width: 133px;
+  height: auto;
+  color: #8A444F;
+  opacity: 0.85;
+}
+
+.invite-card{
+    margin: 6vh auto 2vh auto;
+    padding: 85px 30px;
+    /* border: 25px solid transparent; */
+    /* border-image-source: url("assets/ramka-uzor.svg"); */
+    /* border-image-slice: 28; */
+}
+/* ============================== */
+/* --------- Countdown ---------- */
+/* ============================== */
+.countdown-block {
+    background:
+        url("assets/images/s-voda.jpg")
+        center center / cover
+        no-repeat fixed;
+
+    min-height: 500px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.countdown-title {
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  color: var(--text-primary);
+}
+
+.countdown div {
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
+  padding: 12px 8px;
+}
+
+.countdown span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.countdown small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+/* ======================== */
+/* --------- --------- */
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.gallery {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px;
+
+  /* скрыть скроллбар */
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery img {
+  flex: 0 0 auto;
+  width: 260px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* кнопки */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+
+.gallery-btn.next {
+  right: 10px;
+}
+
+
+
+
+/* ======================== */
+/* .invite-card, .gallery-section, .rsvp-section {
+  background: var(--card);
+  margin: 18px 16px 0;
+  padding: 28px 20px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+} */
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 2rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.invite-card p, .rsvp-section p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.event-info {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.info-item {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(143, 90, 74, 0.08);
+  text-align: center;
+}
+
+.info-item span {
+  display: block;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.info-item strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+.calendar{
+    margin-top:18px;
+    padding:14px;
+    border-radius:20px;
+    background:rgba(250,242,236,.88);
+}
+
+.calendar-top{
+    text-align:center;
+    font-size:1.4rem;
+    margin-bottom:12px;
+    color:var(--accent);
+}
+
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+}
+
+.calendar-grid span{
+    text-align:center;
+    padding:8px 0;
+    border-radius:10px;
+    font-size:1.05rem;
+}
+
+.calendar-days span{
+    font-weight:700;
+    color:#7f5a4d;
+}
+
+.calendar .active{
+    border:2px solid var(--accent);
+    color:var(--accent);
+    background:#fff;
+    font-weight:700;
+}
+
+
+
+.gallery img {
+  flex: 0 0 auto;
+  width: 260px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+
+  scroll-snap-align: center;
+}
+.gallery img {
+  cursor: zoom-in;
+}
+
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease;
+
+  z-index: 9999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-image {
+  max-width: 95vw;
+  max-height: 95vh;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.15);
+
+  color: white;
+  font-size: 32px;
+
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.25);
+}
+/* =================================== */
+
+.rsvp-form {
+  display: grid;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(143, 90, 74, 0.25);
+  border-radius: 14px;
+  font: inherit;
+  background: rgba(255,255,255,0.9);
+  color: var(--text);
+  outline: none;
+}
+
+.guest-row {
+  margin-bottom: 10px;
+}
+
+.guests-container {
+  display: grid;
+  gap: 8px;
+}
+
+.attendance {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.attendance label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+}
+
+.secondary-btn, .submit-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: rgba(143, 90, 74, 0.12);
+  color: var(--accent);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--accent), #b47e69);
+  color: #fff;
+  font-weight: 700;
+}
+
+.status {
+  text-align: center;
+  min-height: 24px;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .grid, .countdown, .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+/* скрыть кнопки на мобилках */
+  .gallery-btn {
+    display: none;
+  }
+
+  .gallery img {
+    width: 220px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    width: 100%;
+  }
+
+  .invite-card, .gallery-section, .rsvp-section {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 22px 16px;
+  }
+
+  .grid, .gallery, .countdown {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown div {
+    padding: 10px;
+  }
+}
