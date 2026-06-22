@@ -1,3 +1,26 @@
+/* 
+#cd0c33 
+#a7382c 
+#651812 
+#c28341 
+#260c05 
+#905729 
+#d7c9c6 
+#8a444f 
+#a98091 
+#b0a9b1 
+------------ 
+#a2d5f9 
+#e72756 
+#6ca1de 
+#a4adce 
+#cec7d8 
+#4f192f 
+#7a6aad 
+#3c546c 
+#8e8d89 
+#606551 */
+
 :root {
   /* --bg: #efe6dc; */
   --text: #3a2a24;
@@ -20,6 +43,29 @@
 
   --card: #F7F5F1;
   --text-important: #130105;
+
+  /* ----Photo-1------- */
+  --photo-color-1: #cd0c33;
+  --photo-color-2: #a7382c;
+  --photo-color-3: #651812;
+  --photo-color-4: #c28341;
+  --photo-color-5: #260c05;
+  --photo-color-6: #905729;
+  --photo-color-7: #d7c9c6;
+  --photo-color-8: #8a444f;
+  --photo-color-9: #a98091;
+  --photo-color-10: #b0a9b1;
+  /* -----Photo-2------- */
+  --photo-color-11: #a2d5f9;
+  --photo-color-12: #e72756;
+  --photo-color-13: #6ca1de;
+  --photo-color-14: #a4adce;
+  --photo-color-15: #cec7d8;
+  --photo-color-16: #4f192f;
+  --photo-color-17: #7a6aad;
+  --photo-color-18: #3c546c;
+  --photo-color-19: #8e8d89;
+  --photo-color-20: #606551;
   }
 
 * {
@@ -209,6 +255,7 @@ body {
 } */
 .small-title {
   letter-spacing: 0.35em;
+  line-height: 1rem;
   font-size: 1.1rem;
   margin: 0 0 10px;
 
@@ -217,7 +264,7 @@ body {
   text-transform: uppercase;
 
   text-shadow:
-    0 1px 2px rgba(0,0,0,0.25);
+    0 1px 2px rgba(0,0,0,0.9);
 }
 /* .subtitle {
   margin-top: 10px;
@@ -278,7 +325,7 @@ body {
 
     min-height: 500px;
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px 60px;
 }
 
 .countdown-title {
@@ -407,7 +454,8 @@ h2 {
 .event-info {
   display: grid;
   gap: 12px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin: 20px 20px;
 }
 
 .info-item {
@@ -468,7 +516,82 @@ h2 {
     font-weight:700;
 }
 
+/* ----карта--------- */
+#mapLink{
+  display: block;
+  width: 100%;
+  max-width: 700px;
+}
 
+.map-section{
+  width: 100%;
+
+  padding: clamp(40px, 6vw, 80px)
+            clamp(16px, 4vw, 40px)
+            clamp(60px, 8vw, 120px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details-title-map{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.map-buttons{
+  display: flex;
+  gap: 12px;
+
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.map-btn{
+  min-width: 140px;
+  max-width: 250px;
+  min-height: 46px;
+  width: 100%;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(143, 90, 74, .12);
+  color: var(--text);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.map-btn.active{
+  background: var(--accent);
+  color: white;
+}
+
+.map-container{
+  width: 100%;
+  max-width: 700px;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  border: 3px solid rgba(143, 90, 74, .5);
+}
+
+.map-container iframe{
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  display: block;
+
+  pointer-events: none;
+}
 /* =============================== */
 /* --------- Галлерея ---------- */
 /* =============================== */

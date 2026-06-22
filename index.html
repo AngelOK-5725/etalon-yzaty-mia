@@ -12,15 +12,22 @@
 </head>
 <body>
   <main id="main-content" class="page">
-    <div id="lang-switcher" class="lang-switcher">
-      <button data-lang="ru" class="active">RU</button>
-      <button data-lang="kz">KZ</button>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="ru" onclick="switchLanguage('ru')">
+        RU
+      </button>
+
+      <button class="lang-btn" data-lang="kz" onclick="switchLanguage('kz')">
+        KZ
+      </button>
     </div>
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
         <h1 data-text="Мия">Мия</h1>
         <p class="small-title">QYZ UZATU</p>
+        <p class="small-title">&</p>
+        <p class="small-title">SIRGA SALU</p>
         <!-- <h2>Shakyru</h2> -->
         <p class="subtitle">Приглашение на торжество</p>
       </section>
@@ -34,30 +41,30 @@
       </div>
 
       <section class="invite-card">
-        <h2 data-i18n="welcomeGreeting">Дорогие друзья и родные!</h2>
-        <p data-i18n="welcomeText1">
+        <h2 data-lang="welcomeGreeting">Дорогие друзья и родные!</h2>
+        <p data-lang="welcomeText1">
           Мы рады пригласить вас на наше торжество, которое состоится 7 августа 2026 года.
           Приглашаем вас разделить с нами этот важный и счастливый день.
           Мы будем рады видеть вас на нашем торжестве.
         </p>
     </section>
     <div class="countdown-block">
-      <div  class="countdown-title" data-i18n="countdownTitle">До торжества осталось:</div>
+      <div  class="countdown-title" data-lang="countdownTitle">До торжества осталось:</div>
       <div id="countdown" class="countdown">
-        <div><span id="countdown-days">00</span><small data-i18n="days">дней</small></div>
-        <div><span id="countdown-hours">00</span><small data-i18n="hours">часов</small></div>
-        <div><span id="countdown-minutes">00</span><small data-i18n="minutes">минут</small></div>
-        <div><span id="countdown-seconds">00</span><small data-i18n="seconds">секунд</small></div>
+        <div><span id="countdown-days">00</span><small data-lang="days">дней</small></div>
+        <div><span id="countdown-hours">00</span><small data-lang="hours">часов</small></div>
+        <div><span id="countdown-minutes">00</span><small data-lang="minutes">минут</small></div>
+        <div><span id="countdown-seconds">00</span><small data-lang="seconds">секунд</small></div>
       </div>
     </div>
 
 
     <div class="event-info">
         <div class="info-item">
-        <span>Дата</span>
+        <span data-lang="calendarTitle">Дата</span>
         <div class="calendar">
           <div class="calendar-top">
-            <span>Август 2026</span>
+            <span data-lang="calendarMonth">Август 2026</span>
           </div>
           <div class="calendar-grid calendar-days">
             <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
@@ -73,13 +80,43 @@
         <!-- <strong>7 апреля 2026</strong> -->
       </div>
       <div class="info-item">
-        <span>Начало</span>
-        <strong>16:00</strong>
+        <span data-lang="calendarDetail">Начало</span>
+        <strong data-lang="calendarDetailValue">16:00</strong>
       </div>
       <div class="info-item">
-        <span>Место</span>
+        <span data-lang="calendarLocation">Место</span>
         <strong>Abylai Khan, 44B, Kaskelen</strong>
       </div>
+    </div>
+    <!-- карта -->
+    <div class="variable-box">
+        <section class="map-section">
+            <h2 class="details-title-map">Карта</h2>
+            <div class="map-buttons">
+                <button 
+                    class="map-btn active"
+                    onclick="showGoogleMap(); setActiveButton(this)">
+                    Google карты
+                </button>
+                
+                <button 
+                    class="map-btn"
+                    onclick="show2GISMap(); setActiveButton(this)">
+                    2ГИС
+                </button>
+            </div>
+
+            <a id="mapLink" href="#" target="_blank">
+                <div class="map-container">
+                    <iframe
+                        id="mapFrame"
+                        src=""
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </a>
+        </section>
     </div>
     
     <!-- <section class="gallery-section">
