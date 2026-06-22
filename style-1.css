@@ -135,7 +135,7 @@ body {
 
   background: rgba(143,90,74,.12);
   border: 1px solid rgba(143,90,74,.25);
-
+/* background: color-mix(in srgb, var(--accent) 50%, transparent); */
   border-radius: 999px;
 
   backdrop-filter: blur(10px);
@@ -182,7 +182,7 @@ body {
       /* rgba(0,0,0,0.0) 100% */
       /* ), */
       /* url("assets/images/main-poster.jpg") center/cover no-repeat; */
-      url("assets/images/serga-sit-1.jpeg") center/cover no-repeat;
+      url("assets/images/serga-sit-1.webp") center/cover no-repeat;
 
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -319,7 +319,7 @@ body {
 /* ============================== */
 .countdown-block {
     background:
-        url("assets/images/s-voda.jpg")
+        url("assets/images/s-voda.webp")
         center center / cover
         no-repeat fixed;
 

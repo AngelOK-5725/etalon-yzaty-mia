@@ -129,12 +129,10 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
   /* ---------- 2GIS ---------- */
 
   function show2GISMap(){
+    mapFrame.src =
+      "https://2gis.kz/kazakhstan/firm/70000001056401234/center/76.6625,43.2053/zoom/17";
 
-      mapFrame.src =
-      "https://widgets.2gis.com/widget?type=firmsonmap&options=...";
-
-      mapLink.href =
-      "https://go.2gis.com/hlYsT";
+    mapLink.href = "https://go.2gis.com/kaskelen";
   }
 
   /* ---------- DEFAULT MAP ---------- */
@@ -143,18 +141,30 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
   /* ---------- MAP BUTTONS ---------- */
 
-  const buttons =
-      document.querySelectorAll(".map-btn");
+  // const buttons =
+  //     document.querySelectorAll(".map-btn");
+  let buttons = [];
 
-  function setActiveButton(button){
+  document.addEventListener("DOMContentLoaded", () => {
+    buttons = document.querySelectorAll(".map-btn");
+  });
+  // function setActiveButton(button){
 
-      buttons.forEach(btn => {
+  //     buttons.forEach(btn => {
 
-          btn.classList.remove("active");
+  //         btn.classList.remove("active");
 
-      });
+  //     });
 
-      button.classList.add("active");
+  //     button.classList.add("active");
+  // }
+  function setActiveButton(button) {
+    if (!buttons.length) {
+      buttons = document.querySelectorAll(".map-btn");
+    }
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
   }
   /* =============================================
      SWIPE-UP OVERLAY — Open animation
@@ -385,7 +395,7 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
     initSwipeOverlay();
     initCountdown();
-    initLangSwitch();
+    // initLangSwitch();
     initRsvp();
     initGallery();
   });
@@ -423,9 +433,22 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
       document.body.style.overflow = "";
     }
   });
+  /* =============================================
+     MAP EXPORT (FIX)
+  ============================================= */
 
+  window.showGoogleMap = showGoogleMap;
+  window.show2GISMap = show2GISMap;
+  window.setActiveButton = setActiveButton;
 /* =============================================
    END
 ============================================= */
 
 })();
+// /* =============================================
+//    MAP FIX — EXPORT FUNCTIONS TO WINDOW
+// ============================================= */
+
+// window.showGoogleMap = showGoogleMap;
+// window.show2GISMap = show2GISMap;
+// window.setActiveButton = setActiveButton;
