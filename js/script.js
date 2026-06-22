@@ -128,11 +128,12 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
   /* ---------- 2GIS ---------- */
 
-  function show2GISMap(){
-    mapFrame.src =
-      "https://2gis.kz/kazakhstan/firm/70000001056401234/center/76.6625,43.2053/zoom/17";
+  function show2GISMap() {
 
-    mapLink.href = "https://go.2gis.com/kaskelen";
+      mapFrame.src = "";
+
+      mapLink.href =
+      "https://2gis.kz/almaty/search/Abylai%20Khan%2C%2044B%2C%20Kaskelen/firm/70000001044906396/76.639929%2C43.201817?m=76.63996%2C43.201832%2F17.57";
   }
 
   /* ---------- DEFAULT MAP ---------- */
