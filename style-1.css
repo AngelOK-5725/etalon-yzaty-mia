@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'SnellRoundhand';
+    src: url('assets/fonts/ofont.ru_Snell Roundhand.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 
 #cd0c33 
 #a7382c 
@@ -66,6 +72,11 @@
   --photo-color-18: #3c546c;
   --photo-color-19: #8e8d89;
   --photo-color-20: #606551;
+  /* -----Substrate------ */
+  --substrate-color-1: #b0a9b1;
+  --substrate-color-2: #d7c9c6;
+  --substrate-color-3: #f1bdc7;
+  --substrate-color-4: #8A444F;
   }
 
 * {
@@ -124,7 +135,7 @@ body {
   background: rgba(255,255,255,.25);
 } */
 .lang-switcher {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
 
@@ -303,7 +314,7 @@ body {
 .ornament {
   width: 133px;
   height: auto;
-  color: #8A444F;
+  color: var(--substrate-color-4);
   opacity: 0.85;
 }
 
@@ -360,6 +371,38 @@ body {
 }
 
 /* ======================== */
+.lightbox-content {
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lightbox-nav.prev { left: 20px; }
+.lightbox-nav.next { right: 20px; }
 /* --------- --------- */
 .gallery-section {
   text-align: center;
@@ -425,9 +468,25 @@ body {
 .gallery-btn.next {
   right: 10px;
 }
-
-
-
+/* ======================== */
+/* ----- Stih ------- */
+/* ======================== */
+.stih-section{
+  margin: 20px 0 35px;
+  text-align: center;
+}
+/* .stih{
+  align-items: center;
+} */
+.txt-stih {
+    white-space: pre-line;
+}
+.txt-stih{
+  font-family: 'SnellRoundhand';
+  /* font-family: "Great Vibes"; */
+  font-size: 21.5px;
+  /* font-weight: 400; */
+}
 
 /* ======================== */
 /* .invite-card, .gallery-section, .rsvp-section {
@@ -462,6 +521,8 @@ h2 {
   padding: 14px;
   border-radius: 16px;
   background: rgba(143, 90, 74, 0.08);
+  /* background: 
+    color-mix(in srgb, var(--substrate-color-4) 25%, transparent); */
   text-align: center;
 }
 
@@ -509,13 +570,33 @@ h2 {
     color:#7f5a4d;
 }
 
-.calendar .active{
+/* .calendar .active{
     border:2px solid var(--accent);
     color:var(--accent);
     background:#fff;
     font-weight:700;
+} */
+.calendar .active{
+    position: relative;
+    color: var(--accent);
+    font-weight: 700;
+    z-index: 1;
 }
 
+.calendar .active::before{
+    content: "";
+    position: absolute;
+    width: 46px;
+    height: 58px;
+    left: 55%;
+    top: 50%;
+    background: var(--photo-color-17);
+    -webkit-mask: url(assets/heart.svg) center / contain no-repeat;
+    mask: url(assets/heart.svg) center / contain no-repeat;
+    transform: translate(-50%, -50%) rotate(1deg) scale(0.7);
+    opacity: .9;
+    z-index: -1;
+}
 /* ----карта--------- */
 #mapLink{
   display: block;
@@ -565,7 +646,7 @@ h2 {
 }
 
 .map-btn.active{
-  background: var(--accent);
+  background: var(--substrate-color-4);
   color: white;
 }
 
@@ -580,7 +661,7 @@ h2 {
   border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  border: 3px solid rgba(143, 90, 74, .5);
+  border: 3px solid var(--substrate-color-4);
 }
 
 .map-container iframe{
@@ -685,7 +766,7 @@ label {
 input, textarea {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid rgba(143, 90, 74, 0.25);
+  border: 1px solid var(--substrate-color-4);
   border-radius: 14px;
   font: inherit;
   background: rgba(255,255,255,0.9);
@@ -731,7 +812,7 @@ input, textarea {
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, var(--accent), #b47e69);
+  background: linear-gradient(180deg, var(--substrate-color-4), #761127);
   color: #fff;
   font-weight: 700;
 }
@@ -741,7 +822,37 @@ input, textarea {
   min-height: 24px;
   margin: 0;
 }
+/* ---футер------ */
+.event-footer{
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(143, 90, 74, 0.08);
+  color: var(--text-secondary);
+}
 
+.footer-title{
+    /*font-family: var(--solo-text);*/ /* Cormorant Garamond */
+    /* font-size: 40px; */
+
+    font-weight: 400;
+    text-transform: uppercase;
+
+    /* margin-bottom: 30px; */
+    letter-spacing: 1px;
+}
+
+.footer-text{
+    /*font-family: var(--headline);*/ /* Bona Nova */
+    font-size: 1.2rem;
+    line-height: 1.6;
+
+    max-width: 500px;
+}
 @media (max-width: 720px) {
   .grid, .countdown, .gallery {
     grid-template-columns: 1fr 1fr;

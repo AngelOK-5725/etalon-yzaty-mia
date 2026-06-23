@@ -17,9 +17,21 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 
   const translations = {
     ru: {
-      welcomeGreeting: "Дорогие друзья и родные!",
-      welcomeText1: "Мы рады пригласить вас на наше торжество, которое состоится 7 августа 2026 года. Приглашаем вас разделить с нами этот важный и счастливый день. Мы будем рады видеть вас на нашем торжестве.",
+      welcomeGreeting: "Дорогие гости!",
+      welcomeText1: "Мы с огромной радостью приглашаем вас разделить с нами этот прекрасный день, который состоится 7 августа 2026 года в 16:00.",
     
+      stihText1:`
+      Отправляя дочь свою по волнам жизни
+      Как не будешь волноваться за нее
+      С ладони отдаю частицу сердца
+      Оторвав ее.
+      Дети наши стали парой, пусть будет крепким ваш союз
+      Приятный нам во всем зятек,
+      Будь нам как опора
+      Будь звездой своей избранницы
+      Она ведь мире только одна.
+      `,
+
       countdownTitle: "До торжества осталось:",
       days: "дней",
       hours: "часов",
@@ -37,6 +49,19 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
       welcomeGreeting: "Құрметті достар мен жақындар!",
       welcomeText1: "Біз сіздерді 2026 жылдың 7 тамызында өтетін мерекемізге шақырамыз. Осы маңызды және бақытты күнді бізбен бірге бөлісуге шақырамыз. Біз сіздерді мерекемізде көргенімізге қуаныштымыз.",
       
+      stihText1:`
+      Қимайды ұзатқан жақ қыз баласын
+      Жан дүниен қалай ғана сыздамасын
+      Құдалар алақанға салып бердік
+      Жүректің жулып алып бір парасын
+      Бір баламыз бүгінде екеу болды
+      Жас жұбайлар одағы бекем болсын
+      Көңіл де, көзде тояр күйеу бала
+      Болма тек үш жұртына сүйеу ғана
+      Жарынның жұлдызы бол бақыты бол
+      Мұндай қыз бұл дүниеде біреу ғана.
+      `,
+
       countdownTitle: "Мерекеге дейін қалған уақыт:",
       days: "күн",
       hours: "сағат",
@@ -404,34 +429,118 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 /* =============================================
    GALLERY LIGHTBOX
 ============================================= */
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.querySelector(".lightbox-image");
-  const closeBtn = document.querySelector(".lightbox-close");
+  // const lightbox = document.getElementById("lightbox");
+  // const lightboxImage = document.querySelector(".lightbox-image");
+  // const closeBtn = document.querySelector(".lightbox-close");
 
-  document.querySelectorAll(".gallery img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImage.src = img.src;
-      lightbox.classList.add("active");
-      document.body.style.overflow = "hidden";
-    });
+  // document.querySelectorAll(".gallery img").forEach(img => {
+  //   img.addEventListener("click", () => {
+  //     lightboxImage.src = img.src;
+  //     lightbox.classList.add("active");
+  //     document.body.style.overflow = "hidden";
+  //   });
+  // });
+
+  // closeBtn.addEventListener("click", () => {
+  //   lightbox.classList.remove("active");
+  //   document.body.style.overflow = "";
+  // });
+
+  // lightbox.addEventListener("click", e => {
+  //   if (e.target === lightbox) {
+  //     lightbox.classList.remove("active");
+  //     document.body.style.overflow = "";
+  //   }
+  // });
+
+  // document.addEventListener("keydown", e => {
+  //   if (e.key === "Escape") {
+  //     lightbox.classList.remove("active");
+  //     document.body.style.overflow = "";
+  //   }
+  // });
+  const items = Array.from(document.querySelectorAll(".gallery img"));
+
+  const lightbox = document.getElementById("lightbox");
+  const content = document.querySelector(".lightbox-content");
+
+  const closeBtn = document.querySelector(".lightbox-close");
+  const prevBtn = document.querySelector(".lightbox-nav.prev");
+  const nextBtn = document.querySelector(".lightbox-nav.next");
+
+  let currentIndex = 0;
+
+  // открыть
+  function openLightbox(index) {
+    currentIndex = index;
+    render();
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // отрисовка
+  function render() {
+    const el = items[currentIndex];
+
+    content.innerHTML = "";
+
+    const img = document.createElement("img");
+    img.src = el.src;
+
+    content.appendChild(img);
+  }
+
+  // навигация
+  function next() {
+    currentIndex = (currentIndex + 1) % items.length;
+    render();
+  }
+
+  function prev() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    render();
+  }
+
+  // события
+  items.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
   });
+
+  nextBtn.addEventListener("click", next);
+  prevBtn.addEventListener("click", prev);
 
   closeBtn.addEventListener("click", () => {
     lightbox.classList.remove("active");
     document.body.style.overflow = "";
   });
 
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-  });
+  // клавиатура (ПК)
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
 
-  document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       lightbox.classList.remove("active");
       document.body.style.overflow = "";
+    }
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+  
+  let startX = 0;
+
+  lightbox.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightbox.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+
+    let diff = startX - endX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
     }
   });
   /* =============================================

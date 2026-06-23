@@ -41,13 +41,14 @@
       </div>
 
       <section class="invite-card">
-        <h2 data-lang="welcomeGreeting">Дорогие друзья и родные!</h2>
+        <h2 data-lang="welcomeGreeting">Уважаемые гости, родственники, друзья, коллеги, соседи, кудалар!</h2>
         <p data-lang="welcomeText1">
           Мы рады пригласить вас на наше торжество, которое состоится 7 августа 2026 года.
           Приглашаем вас разделить с нами этот важный и счастливый день.
           Мы будем рады видеть вас на нашем торжестве.
         </p>
     </section>
+
     <div class="countdown-block">
       <div  class="countdown-title" data-lang="countdownTitle">До торжества осталось:</div>
       <div id="countdown" class="countdown">
@@ -57,7 +58,6 @@
         <div><span id="countdown-seconds">00</span><small data-lang="seconds">секунд</small></div>
       </div>
     </div>
-
 
     <div class="event-info">
         <div class="info-item">
@@ -88,46 +88,109 @@
         <strong>Abylai Khan, 44B, Kaskelen</strong>
       </div>
     </div>
-    <!-- карта -->
-    <div class="variable-box">
-        <section class="map-section">
-            <h2 class="details-title-map">Карта</h2>
-            <div class="map-buttons">
-                <button 
-                    class="map-btn active"
-                    onclick="showGoogleMap(); setActiveButton(this)">
-                    Google карты
-                </button>
-                
-                <button 
-                    class="map-btn"
-                    onclick="show2GISMap(); setActiveButton(this)">
-                    2ГИС
-                </button>
-            </div>
 
-            <a id="mapLink" href="#" target="_blank">
-                <div class="map-container">
-                    <iframe
-                        id="mapFrame"
-                        src=""
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </a>
-        </section>
-    </div>
-    
-    <!-- <section class="gallery-section">
-      <h2>Примеры образов</h2>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Образ 1">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Образ 2">
-        <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80" alt="Образ 3">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Образ 4">
+    <!-- карта -->
+    <section class="map-section">
+        <h2 class="details-title-map">Карта</h2>
+        <div class="map-buttons">
+            <button 
+                class="map-btn active"
+                onclick="showGoogleMap(); setActiveButton(this)">
+                Google карты
+            </button>
+            
+            <button 
+                class="map-btn"
+                onclick="show2GISMap(); setActiveButton(this)">
+                2ГИС
+            </button>
+        </div>
+
+        <a id="mapLink" href="#" target="_blank">
+            <div class="map-container">
+                <iframe
+                    id="mapFrame"
+                    src=""
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </a>
+    </section>
+
+    <section class="rsvp-section">
+      <h2>Подтвердите присутствие</h2>
+
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="grid">
+          <label>
+            Имя
+            <input type="text" id="firstName" required />
+          </label>
+
+          <label>
+            Фамилия
+            <input type="text" id="lastName" required />
+          </label>
+        </div>
+
+        <div id="guestsContainer" class="guests-container">
+          <label class="guest-row">
+            <span>Гость 1</span>
+            <input type="text" class="guest-name" placeholder="Имя Фамилия" />
+          </label>
+        </div>
+
+        <button type="button" id="addGuestBtn" class="secondary-btn">+ Добавить ещё гостя</button>
+
+        <div class="attendance">
+          <label>
+            <input type="radio" name="attendance" value="Приду" required>
+            Приду
+          </label>
+          <label>
+            <input type="radio" name="attendance" value="Не приду" required>
+            Не приду
+          </label>
+        </div>
+
+        <!-- <label>
+          Комментарий
+          <textarea id="comment" rows="4" placeholder="Например: будем с детьми, нужен стул, и т.д."></textarea>
+        </label> -->
+
+        <button type="submit" class="submit-btn">Отправить ответ</button>
+        <p id="status" class="status"></p>
+      </form>
+    </section>
+
+    <section class="stih-section">
+      <div class="stih">
+        <p data-lang="stihText1" class="txt-stih">
+          Отправляя дочь свою по волнам жизни
+          Как не будешь волноваться за нее
+          С ладони отдаю частицу сердца
+          Оторвав ее.
+          Дети наши стали парой, пусть будет крепким ваш союз
+          Приятный нам во всем зятек,
+          Будь нам как опора
+          Будь звездой своей избранницы
+          Она ведь мире только одна.
+        </p>
       </div>
-    </section> -->
+    </section>
+    
+    
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close">&times;</button>
+
+      <button class="lightbox-nav prev">‹</button>
+
+      <div class="lightbox-content">
+      </div>
+
+      <button class="lightbox-nav next">›</button>
+    </div>
     <section class="gallery-section">
       <h2>Галерея</h2>
 
@@ -174,52 +237,29 @@
       </div>
     </section>
     
-    <section class="rsvp-section">
-      <h2>Подтвердите присутствие</h2>
-
-      <form id="rsvp-form" class="rsvp-form">
-        <div class="grid">
-          <label>
-            Имя
-            <input type="text" id="firstName" required />
-          </label>
-
-          <label>
-            Фамилия
-            <input type="text" id="lastName" required />
-          </label>
-        </div>
-
-        <div id="guestsContainer" class="guests-container">
-          <label class="guest-row">
-            <span>Гость 1</span>
-            <input type="text" class="guest-name" placeholder="Имя Фамилия" />
-          </label>
-        </div>
-
-        <button type="button" id="addGuestBtn" class="secondary-btn">+ Добавить ещё гостя</button>
-
-        <div class="attendance">
-          <label>
-            <input type="radio" name="attendance" value="Приду" required>
-            Приду
-          </label>
-          <label>
-            <input type="radio" name="attendance" value="Не приду" required>
-            Не приду
-          </label>
-        </div>
-
-        <!-- <label>
-          Комментарий
-          <textarea id="comment" rows="4" placeholder="Например: будем с детьми, нужен стул, и т.д."></textarea>
-        </label> -->
-
-        <button type="submit" class="submit-btn">Отправить ответ</button>
-        <p id="status" class="status"></p>
-      </form>
-    </section>
+    <!-- <section class="gallery-section">
+      <h2>Примеры образов</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Образ 1">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Образ 2">
+        <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=600&q=80" alt="Образ 3">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Образ 4">
+      </div>
+    </section> -->
+    
+    
+    
   </main>
+  <footer class="event-footer">
+    <h2 class="footer-title">
+        ОРГАНИЗАТОРЫ СОБЫТИЯ
+    </h2>
+
+    <p class="footer-text">
+        Родители - Любовь, Сергей<br>
+        и сестра Наталья
+    </p>
+  </footer>
 
   <script src="js/script.js"></script>
 </body>
