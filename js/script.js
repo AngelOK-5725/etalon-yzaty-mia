@@ -18,7 +18,10 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
   const translations = {
     ru: {
       welcomeGreeting: "Дорогие гости!",
-      welcomeText1: "Мы с огромной радостью приглашаем вас разделить с нами этот прекрасный день, который состоится 7 августа 2026 года в 16:00.",
+      welcomeText1: `
+      Мы с огромной радостью приглашаем вас разделить 
+      с нами этот прекрасный день, который состоится 7 августа 2026 года в 17:00.
+      `,
     
       stihText1:`
       Отправляя дочь свою по волнам жизни
@@ -41,13 +44,16 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
       calendarTitle: "Дата",
       calendarMonth: "Август 2026",
       calendarDetail: "Начало",
-      calendarDetailValue: "16:00",
+      calendarDetailValue: "17:00",
       calendarLocation: "Место",
     },
 
     kz: {
       welcomeGreeting: "Құрметті достар мен жақындар!",
-      welcomeText1: "Біз сіздерді 2026 жылдың 7 тамызында өтетін мерекемізге шақырамыз. Осы маңызды және бақытты күнді бізбен бірге бөлісуге шақырамыз. Біз сіздерді мерекемізде көргенімізге қуаныштымыз.",
+      welcomeText1:` 
+      Біз сіздерді 2026 жылдың 7 тамызында сағат 17.00-де өтетін 
+      осы әдемі күнді бізбен бөлісуге шақырамыз.
+      `,
       
       stihText1:`
       Қимайды ұзатқан жақ қыз баласын
