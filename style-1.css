@@ -193,7 +193,7 @@ body {
       /* rgba(0,0,0,0.0) 100% */
       /* ), */
       /* url("assets/images/main-poster.jpg") center/cover no-repeat; */
-      url("assets/images/serga-sit-1.webp") center/cover no-repeat;
+      url("assets/images/serga-sit-1.avif") center/cover no-repeat;
 
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -330,7 +330,7 @@ body {
 /* ============================== */
 .countdown-block {
     background:
-        url("assets/images/s-voda.webp")
+        url("assets/images/s-voda.avif")
         center center / cover
         no-repeat fixed;
 
