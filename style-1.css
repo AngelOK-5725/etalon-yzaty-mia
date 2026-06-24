@@ -846,10 +846,10 @@ input, textarea {
 }
 
 /* выбранное состояние */
-.attendance input[type="radio"]:checked + span,
-.attendance input[type="radio"]:checked {
+/* .attendance input[type="radio"]:checked + span,
+.attendance input[type="radio"]:checked { */
   /* не используется напрямую, см. ниже */
-}
+/* } */
 
 /* ВАЖНО: делаем через :has() — супер современно */
 .attendance label:has(input[type="radio"]:checked) {
@@ -901,6 +901,24 @@ input, textarea {
   text-align: center;
   min-height: 24px;
   margin: 0;
+}
+
+.guest-entry {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.guest-input {
+  flex: 1;
+}
+
+.remove-guest-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
 }
 /* ======================== */
 .modal {

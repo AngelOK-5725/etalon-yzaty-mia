@@ -319,8 +319,10 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
      ============================================= */
   function initRsvp() {
     const form = document.getElementById("rsvp-form");
-    // const successBlock = document.getElementById("form-success");
-    // const formContent = document.getElementById("rsvp-form-content");
+    const addGuestBtn = document.getElementById("addGuestBtn");
+    const guestsContainer = document.getElementById("guestsContainer");
+
+    let guestCount = 0;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -371,45 +373,46 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
     });
 
     const resetBtn = document.getElementById("rsvp-reset-btn");
+
+  if (resetBtn) {
     resetBtn.addEventListener("click", () => {
       form.reset();
-      // Clear all guest entries
-      document.getElementById("guests-container").innerHTML = '';
+      document.getElementById("guestsContainer").innerHTML = "";
       guestCount = 0;
-      formContent.style.display = "block";
-      successBlock.classList.remove("show");
-    });
-
-    // Add guest field
-    // const addGuestBtn = document.getElementById("add-guest-btn");
-    // const guestsContainer = document.getElementById("guests-container");
-
-    function addGuestField(nameValue) {
-      guestCount++;
-      const entry = document.createElement("div");
-      entry.className = "guest-entry";
-      entry.innerHTML = `
-        <input type="text" class="guest-input" name="guest_${guestCount}"
-              placeholder="${translations[currentLang].guestPlaceholder}"
-              value="${nameValue || ''}" />
-        <button type="button" class="remove-guest-btn" aria-label="Удалить">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      `;
-      entry.querySelector('.remove-guest-btn').addEventListener('click', () => {
-        entry.remove();
-        guestCount--;
-      });
-      guestsContainer.appendChild(entry);
-    }
-
-    addGuestBtn.addEventListener("click", () => {
-      addGuestField('');
     });
   }
+
+  function addGuestField() {
+    const entry = document.createElement("div");
+
+    entry.className = "guest-entry";
+
+    entry.innerHTML = `
+      <input
+        type="text"
+        class="guest-input"
+        placeholder="Имя и фамилия гостя"
+      >
+
+      <button
+        type="button"
+        class="remove-guest-btn">
+        ✕
+      </button>
+    `;
+
+    entry.querySelector(".remove-guest-btn")
+      .addEventListener("click", () => {
+        entry.remove();
+      });
+
+    guestsContainer.appendChild(entry);
+  }
+
+  addGuestBtn.addEventListener("click", addGuestField);
+
+  } // <-- закрываем initRsvp
+
   window.closeModal = function () {
     document.getElementById("successModal").classList.remove("show");
   };
@@ -417,6 +420,45 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
   window.showModal = function () {
     document.getElementById("successModal").classList.add("show");
   };
+
+    // Add guest field
+    // const addGuestBtn = document.getElementById("add-guest-btn");
+    // const guestsContainer = document.getElementById("guests-container");
+
+    // function addGuestField(nameValue) {
+    //   guestCount++;
+    //   const entry = document.createElement("div");
+    //   entry.className = "guest-entry";
+    //   entry.innerHTML = `
+    //     <input type="text" class="guest-input" name="guest_${guestCount}"
+    //           placeholder="${translations[currentLang].guestPlaceholder}"
+    //           value="${nameValue || ''}" />
+    //     <button type="button" class="remove-guest-btn" aria-label="Удалить">
+    //       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    //         <line x1="18" y1="6" x2="6" y2="18"></line>
+    //         <line x1="6" y1="6" x2="18" y2="18"></line>
+    //       </svg>
+    //     </button>
+    //   `;
+    //   entry.querySelector('.remove-guest-btn').addEventListener('click', () => {
+    //     entry.remove();
+    //     guestCount--;
+    //   });
+    //   guestsContainer.appendChild(entry);
+    // }
+    
+
+  //   addGuestBtn.addEventListener("click", () => {
+  //     addGuestField('');
+  //   });
+  // }
+  // window.closeModal = function () {
+  //   document.getElementById("successModal").classList.remove("show");
+  // };
+
+  // window.showModal = function () {
+  //   document.getElementById("successModal").classList.add("show");
+  // };
 
   /* =============================================
      INIT
@@ -428,7 +470,7 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6
     initCountdown();
     // initLangSwitch();
     initRsvp();
-    initGallery();
+    // initGallery();
   });
 
 /* =============================================
