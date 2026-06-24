@@ -125,31 +125,31 @@
         <div class="grid">
           <label>
             Имя
-            <input type="text" id="firstName" required />
+            <input type="text" id="rsvp-name" required />
           </label>
 
           <label>
             Фамилия
-            <input type="text" id="lastName" required />
+            <input type="text" id="rsvp-surname" required />
           </label>
         </div>
 
-        <div id="guestsContainer" class="guests-container">
+        <!-- <div id="guestsContainer" class="guests-container">
           <label class="guest-row">
             <span>Гость 1</span>
-            <input type="text" class="guest-name" placeholder="Имя Фамилия" />
+            <input type="text" class="guest-input" placeholder="Имя Фамилия" />
           </label>
         </div>
 
-        <button type="button" id="addGuestBtn" class="secondary-btn">+ Добавить ещё гостя</button>
+        <button type="button" id="addGuestBtn" class="secondary-btn">+ Добавить ещё гостя</button> -->
 
         <div class="attendance">
           <label>
-            <input type="radio" name="attendance" value="Приду" required>
+            <input type="radio" name="status" value="Приду" required>
             Приду
           </label>
           <label>
-            <input type="radio" name="attendance" value="Не приду" required>
+            <input type="radio" name="status" value="Не приду" required>
             Не приду
           </label>
         </div>
@@ -250,6 +250,13 @@
     
     
   </main>
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <h2>Спасибо! 💌</h2>
+      <p>Вы записаны</p>
+      <button onclick="closeModal()">OK</button>
+    </div>
+  </div>
   <footer class="event-footer">
     <h2 class="footer-title">
         ОРГАНИЗАТОРЫ СОБЫТИЯ
@@ -261,6 +268,6 @@
     </p>
   </footer>
 
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

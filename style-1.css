@@ -783,7 +783,7 @@ input, textarea {
   gap: 8px;
 }
 
-.attendance {
+/* .attendance {
   display: flex;
   gap: 18px;
   justify-content: center;
@@ -796,6 +796,82 @@ input, textarea {
   align-items: center;
   gap: 8px;
   font-size: 1.2rem;
+} */
+/* =========================
+   MODERN RADIO BUTTONS
+========================= */
+
+.attendance {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+/* скрываем стандартный radio */
+.attendance input[type="radio"] {
+  display: none;
+}
+
+/* сам "пилюльный" вариант */
+.attendance label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+  border-radius: 999px;
+
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(141, 87, 41, 0.25);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* hover */
+.attendance label:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-hover);
+}
+
+/* выбранное состояние */
+.attendance input[type="radio"]:checked + span,
+.attendance input[type="radio"]:checked {
+  /* не используется напрямую, см. ниже */
+}
+
+/* ВАЖНО: делаем через :has() — супер современно */
+.attendance label:has(input[type="radio"]:checked) {
+  background: linear-gradient(180deg, #8a444fa6, #761127b8);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(144, 87, 41, 0.35);
+  transform: translateY(-2px);
+}
+
+/* маленькая точка-индикатор */
+.attendance label::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: inline-block;
+  transition: 0.25s ease;
+}
+
+/* активная точка */
+.attendance label:has(input[type="radio"]:checked)::before {
+  background: white;
+  border-color: white;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
 }
 
 .secondary-btn, .submit-btn {
@@ -822,6 +898,29 @@ input, textarea {
   min-height: 24px;
   margin: 0;
 }
+/* ======================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 99999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  min-width: 280px;
+}
+/* ====================== */
 /* ---футер------ */
 .event-footer{
   width: 100%;

@@ -3,7 +3,7 @@
    Swipe-up opening, countdown, i18n, RSVP, Telegram, gallery lightbox
    Style inspired by @invi_studio
    ============================================= */
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YOT-fBM1cik3nFqqxFBuI3rTsDP1Eg_zTijjYX21olql_qAA/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyLm7HpAE7VYlqhd3QxUrf6T9tvU-UKlYVLx6Zdn4C2Ow7s_sZuQ5S05GT6GknRG_UZ6A/exec";
 (function () {
   'use strict';
 
@@ -319,8 +319,8 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
      ============================================= */
   function initRsvp() {
     const form = document.getElementById("rsvp-form");
-    const successBlock = document.getElementById("form-success");
-    const formContent = document.getElementById("rsvp-form-content");
+    // const successBlock = document.getElementById("form-success");
+    // const formContent = document.getElementById("rsvp-form-content");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -360,8 +360,10 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
         const result = await response.text();
         console.log("Ответ GAS:", result);
 
-        formContent.style.display = "none";
-        successBlock.classList.add("show");
+        showModal(); 
+
+        // formContent.style.display = "none";
+        // successBlock.classList.add("show");
       } catch (error) {
         console.error("Ошибка fetch:", error);
         console.error(error.message);
@@ -379,8 +381,8 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
     });
 
     // Add guest field
-    const addGuestBtn = document.getElementById("add-guest-btn");
-    const guestsContainer = document.getElementById("guests-container");
+    // const addGuestBtn = document.getElementById("add-guest-btn");
+    // const guestsContainer = document.getElementById("guests-container");
 
     function addGuestField(nameValue) {
       guestCount++;
@@ -408,10 +410,13 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
       addGuestField('');
     });
   }
+  window.closeModal = function () {
+    document.getElementById("successModal").classList.remove("show");
+  };
 
-
-
-
+  window.showModal = function () {
+    document.getElementById("successModal").classList.add("show");
+  };
 
   /* =============================================
      INIT
@@ -429,36 +434,6 @@ const GAS_URL = "https://script.google.com/macros/s/AKfycbxw4CwTU_rN61dB6f6uw2YO
 /* =============================================
    GALLERY LIGHTBOX
 ============================================= */
-  // const lightbox = document.getElementById("lightbox");
-  // const lightboxImage = document.querySelector(".lightbox-image");
-  // const closeBtn = document.querySelector(".lightbox-close");
-
-  // document.querySelectorAll(".gallery img").forEach(img => {
-  //   img.addEventListener("click", () => {
-  //     lightboxImage.src = img.src;
-  //     lightbox.classList.add("active");
-  //     document.body.style.overflow = "hidden";
-  //   });
-  // });
-
-  // closeBtn.addEventListener("click", () => {
-  //   lightbox.classList.remove("active");
-  //   document.body.style.overflow = "";
-  // });
-
-  // lightbox.addEventListener("click", e => {
-  //   if (e.target === lightbox) {
-  //     lightbox.classList.remove("active");
-  //     document.body.style.overflow = "";
-  //   }
-  // });
-
-  // document.addEventListener("keydown", e => {
-  //   if (e.key === "Escape") {
-  //     lightbox.classList.remove("active");
-  //     document.body.style.overflow = "";
-  //   }
-  // });
   const items = Array.from(document.querySelectorAll(".gallery img"));
 
   const lightbox = document.getElementById("lightbox");
