@@ -475,16 +475,20 @@ body {
   margin: 20px 0 35px;
   text-align: center;
 }
-/* .stih{
-  align-items: center;
-} */
+.stih{
+    /* margin: 6vh auto 2vh auto; */
+    /* padding: 85px 30px; */
+    border: 25px solid transparent;
+    border-image-source: url("assets/ramka-uzor.svg");
+    border-image-slice: 28;
+}
 .txt-stih {
     white-space: pre-line;
 }
 .txt-stih{
   font-family: 'SnellRoundhand';
   /* font-family: "Great Vibes"; */
-  font-size: 21.5px;
+  font-size: 25px;
   /* font-weight: 400; */
 }
 
