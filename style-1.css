@@ -539,7 +539,7 @@ h2 {
 .info-item strong {
   display: block;
   margin-top: 4px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--text-secondary);
 }
 .calendar{
@@ -889,6 +889,7 @@ input, textarea {
 .secondary-btn {
   background: rgba(143, 90, 74, 0.12);
   color: var(--accent);
+  font-size: 1.6rem;
 }
 
 .submit-btn {
@@ -1090,20 +1091,21 @@ input, textarea {
   color: var(--text-secondary);
 }
 
-.footer-title{
+/* .footer-title{ */
     /*font-family: var(--solo-text);*/ /* Cormorant Garamond */
     /* font-size: 40px; */
 
-    font-weight: 400;
-    text-transform: uppercase;
+    /* font-weight: 400; */
+    /* text-transform: uppercase; */
 
     /* margin-bottom: 30px; */
-    letter-spacing: 1px;
-}
+    /* letter-spacing: 1px; */
+    /* margin: 0 50px 30px; */
+/* } */
 
 .footer-text{
     /*font-family: var(--headline);*/ /* Bona Nova */
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
 
     max-width: 500px;
