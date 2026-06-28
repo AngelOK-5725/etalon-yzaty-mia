@@ -812,6 +812,30 @@ input, textarea {
   flex-wrap: wrap;
   padding: 12px 0;
 }
+.guest-tip{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+
+    margin:20px 0;
+    padding:14px 16px;
+
+    background:#faf6ef;
+    border-left:4px solid #caa46d;
+    border-radius:10px;
+}
+
+.guest-tip-icon{
+    font-size:20px;
+    line-height:1;
+}
+
+.guest-tip p{
+    margin:0;
+    font-size:14px;
+    line-height:1.5;
+    color:#555;
+}
 
 /* скрываем стандартный radio */
 .attendance input[type="radio"] {
